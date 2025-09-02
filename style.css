@@ -1,0 +1,162 @@
+:root {
+    --bg: #000;
+    --fg: #cfcfcf;
+    --accent: #33FF33;
+    --light: var(--accent);
+    --light-weak: rgba(204, 255, 204, 0.08);
+    --btn-bg: #071007;
+    --btn-active: var(--light);
+}
+
+html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial;
+    height: 100%;
+    min-height: 100vh;
+}
+
+#vistas {
+    position: absolute;
+    left: 5%;
+    top: 20px;
+    max-width: calc(100% - 40px);
+    width: min(1450px, calc(100% - 40px));
+    height: auto;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+    z-index: 1;
+    background: transparent;
+}
+
+#crt-wrap {
+    position: absolute;
+    right: 15%;
+    top: clamp(20px, 8vh, 100px);
+    width: clamp(300px, 30vw, 600px);
+    height: clamp(300px, 30vw, 600px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    display: block;
+    box-sizing: content-box;
+}
+
+.controls-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    width: min(900px, calc(100% - 48px));
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    background: rgba(6, 10, 6, 0.75);
+    border: 1px solid var(--light-weak);
+    border-radius: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+    align-items: start;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+    height: auto;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: var(--fg);
+}
+
+input[type=range] {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 260px;
+    accent-color: var(--accent);
+}
+
+select {
+    padding: 6px;
+    background: rgba(10, 16, 10, 0.7);
+    color: var(--fg);
+    border-radius: 6px;
+    border: 1px solid var(--light-weak);
+}
+
+.presets {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.small {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.preset-btn {
+    background: var(--btn-bg);
+    color: var(--fg);
+    border-radius: 6px;
+    padding: 6px 8px;
+    border: 1px solid var(--light-weak);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.preset-btn.active {
+    background: var(--btn-active);
+    color: #001;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 720px) {
+    .controls-box {
+        width: calc(100% - 24px);
+        bottom: 6%;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    #vistas {
+        left: 2%;
+        top: 12px;
+        width: calc(100% - 24px);
+    }
+}
+
+#vistas-overlay {
+    position: absolute;
+    pointer-events: none;
+    background: transparent;
+    z-index: 2;
+}
+
+#crt-wrap {
+    z-index: 3;
+}
+
+.controls-box {
+    z-index: 4;
+}
