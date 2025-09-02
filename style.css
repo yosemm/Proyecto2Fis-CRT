@@ -148,12 +148,12 @@ select {
 
     #vistas {
         left: 2%;
-        top: 12px;
+        top: clamp(20px, 8vh, 100px);
         width: calc(100% - 24px);
     }
 }
 
-@media (max-width: 1919px), (max-height: 1079px) {
+@media (max-width: 1800px), (max-height: 900px) {
     h1 {
         font-size: 20px;
     }
