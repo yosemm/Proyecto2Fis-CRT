@@ -19,7 +19,7 @@
 <div aria-label="Controls" class="controls-box" role="region">
     <div class="control-group">
         <label>Modo</label>
-        <select id="mode">
+        <label for="mode"></label><select id="mode">
             <option value="manual">Manual</option>
             <option value="sine">Sinusoidal</option>
         </select>
@@ -27,21 +27,21 @@
 
     <div class="control-group">
         <label>Voltaje de Aceleración <span class="small" id="vaccVal">5000</span> V</label>
-        <input id="vacc" max="20000" min="1000" step="100" type="range" value="5000">
+        <label for="vacc"></label><input id="vacc" max="20000" min="1000" step="100" type="range" value="5000">
     </div>
 
     <div class="control-group" id="manualControls">
         <label>Vx <span class="small" id="vxVal">0</span></label>
-        <input id="vx" max="100" min="-100" step="1" type="range" value="0">
+        <label for="vx"></label><input id="vx" max="100" min="-100" step="1" type="range" value="0">
         <label>Vy <span class="small" id="vyVal">0</span></label>
-        <input id="vy" max="100" min="-100" step="1" type="range" value="0">
+        <label for="vy"></label><input id="vy" max="100" min="-100" step="1" type="range" value="0">
     </div>
 
     <div class="control-group" id="sineControls" style="display:none">
         <label>Frecuencia (x) <span class="small" id="fxVal">3.00</span> Hz</label>
-        <input id="fx" max="50" min="0.1" step="0.1" type="range" value="3">
+        <label for="fx"></label><input id="fx" max="50" min="0.1" step="0.1" type="range" value="3">
         <label>Frecuencia (y) <span class="small" id="fyVal">2.00</span> Hz</label>
-        <input id="fy" max="50" min="0.1" step="0.1" type="range" value="2">
+        <label for="fy"></label><input id="fy" max="50" min="0.1" step="0.1" type="range" value="2">
         <div class="presets" id="ratioPresets" style="margin-top:6px;">
             <button class="preset-btn" data-r="1" data-s="1">1:1</button>
             <button class="preset-btn" data-r="1" data-s="2">1:2</button>
@@ -52,7 +52,7 @@
 
     <div class="control-group">
         <label>δ <span class="small" id="phaseVal">0.00</span></label>
-        <input id="phase" max="6.283" min="0" step="0.01" type="range" value="0.6">
+        <label for="phase"></label><input id="phase" max="6.283" min="0" step="0.01" type="range" value="0.6">
         <div class="presets" id="phasePresets" style="margin-top:6px;">
             <button class="preset-btn" data-p="0">0</button>
             <button class="preset-btn" data-p="0.7853981633974483">π/4</button>
@@ -63,9 +63,9 @@
 
     <div class="control-group">
         <label>VM <span class="small" id="vmVal">100</span></label>
-        <input id="vm" max="200" min="100" step="1" type="range" value="100">
+        <label for="vm"></label><input id="vm" max="200" min="100" step="1" type="range" value="100">
         <label style="margin-top:8px">Latencia <span class="small" id="latVal">0.85</span></label>
-        <input id="lat" max="0.99" min="0" step="0.01" type="range" value="0.85">
+        <label for="lat"></label><input id="lat" max="0.99" min="0" step="0.01" type="range" value="0.85">
     </div>
 </div>
 </body>
