@@ -17,6 +17,13 @@ html, body {
     min-height: 100vh;
 }
 
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: var(--accent);
+    font-weight: lighter;
+}
+
 #vistas {
     position: absolute;
     left: 5%;
