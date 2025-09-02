@@ -139,21 +139,7 @@ select {
     border-color: rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 720px) {
-    .controls-box {
-        width: calc(100% - 24px);
-        bottom: 6%;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-
-    #vistas {
-        left: 2%;
-        top: clamp(20px, 8vh, 100px);
-        width: calc(100% - 24px);
-    }
-}
-
-@media (max-width: 1800px), (max-height: 900px) {
+@media (max-width: 1700px), (max-height: 900px) {
     h1 {
         font-size: 20px;
     }
@@ -189,18 +175,37 @@ select {
         max-width: 220px;
     }
 
-    label { font-size: 11px; }
-    input[type=range] { max-width: 220px; }
-    select { padding: 5px; }
-    .preset-btn { padding: 5px 6px; font-size: 11px; }
-    .small { font-size: 10px; }
+    label {
+        font-size: 11px;
+    }
+
+    input[type=range] {
+        max-width: 220px;
+    }
+
+    select {
+        padding: 5px;
+    }
+
+    .preset-btn {
+        padding: 5px 6px;
+        font-size: 11px;
+    }
+
+    .small {
+        font-size: 10px;
+    }
 }
 
-@media (max-width: 1366px), (max-height: 768px) {
+@media (max-width: 900px), (max-height: 750px) {
     #crt-wrap {
         width: clamp(180px, 28vw, 420px);
         height: clamp(180px, 28vw, 420px);
         right: 8%;
+    }
+
+    #vistas {
+        top: 28px;
     }
 
     .controls-box {
@@ -211,7 +216,9 @@ select {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 
-    h1 { font-size: 18px; }
+    h1 {
+        font-size: 18px;
+    }
 }
 
 #vistas-overlay {
