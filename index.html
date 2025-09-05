@@ -52,11 +52,12 @@
 
     <div class="control-group">
         <label>δ <span class="small" id="phaseVal">0.00</span></label>
-        <label for="phase"></label><input id="phase" max="6.283" min="0" step="0.01" type="range" value="0.6">
+        <label for="phase"></label><input id="phase" max="6.283" min="0" step="0.01" type="range" value="0">
         <div class="presets" id="phasePresets" style="margin-top:6px;">
             <button class="preset-btn" data-p="0">0</button>
             <button class="preset-btn" data-p="0.7853981633974483">π/4</button>
             <button class="preset-btn" data-p="1.5707963267948966">π/2</button>
+            <button class="preset-btn" data-p="2.35619449">3π/4</button>
             <button class="preset-btn" data-p="3.141592653589793">π</button>
         </div>
     </div>
@@ -64,7 +65,7 @@
     <div class="control-group">
         <label>VM <span class="small" id="vmVal">100</span></label>
         <label for="vm"></label><input id="vm" max="200" min="100" step="1" type="range" value="100">
-        <label style="margin-top:8px">Latencia <span class="small" id="latVal">0.85</span></label>
+        <label style="margin-top:8px">Latencia <span class="small" id="latVal">0.90</span></label>
         <label for="lat"></label><input id="lat" max="0.99" min="0" step="0.01" type="range" value="0.85">
     </div>
 </div>

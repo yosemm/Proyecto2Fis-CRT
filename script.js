@@ -51,10 +51,28 @@ let canvasWidth = crtCanvas.width / deviceRatio;
 let canvasHeight = crtCanvas.height / deviceRatio;
 let maxVoltage = Number(maxVoltageInput.value);
 
+// Geometría y referencia de calibración
+const GEOM = {
+  Ls: 0.25,   // m  (largo desde placas a pantalla)
+  Lp: 0.08,   // m  (largo de las placas)
+  d:  0.005,  // m  (separación entre placas)
+  VACC0: 1000, // V  (voltaje de aceleración de referencia, fijo para DESPLAZAMIENTO)
+};
+
+function deflectionMetersPerVolt() {
+  const mPerV = (GEOM.Lp * GEOM.Ls) / (2 * GEOM.d * GEOM.VACC0);
+
+  return mPerV;
+}
+
 function computePixelsPerVolt() {
     const screenPixels = Math.min(canvasWidth, canvasHeight);
-    const maxDisplacementPixels = 0.95 * (screenPixels / 2);
-    return maxDisplacementPixels / Math.max(1, maxVoltage);
+    const maxDisplacementPixels = (0.95 * screenPixels) / 2;
+
+    const mPerV = deflectionMetersPerVolt();
+    const percentageDisplacement = mPerV / (mPerV * xVoltInput.max)
+
+    return maxDisplacementPixels * percentageDisplacement;
 }
 
 let pixelsPerVolt = computePixelsPerVolt();
@@ -347,7 +365,7 @@ requestAnimationFrame(animateFrame);
             const xSliderMax = Math.max(Math.abs(Number(xVoltInput.min || -1)), Math.abs(Number(xVoltInput.max || 1)));
             const ySliderMax = Math.max(Math.abs(Number(yVoltInput.min || -1)), Math.abs(Number(yVoltInput.max || 1)));
             voltageX = normX * xSliderMax;
-            voltageY = normY * ySliderMax;
+            voltageY = -normY * ySliderMax;
         }
 
         const pxPerVoltLat = 0.95 * (Math.min(lateralRect.w, lateralRect.h) / 2) / Math.max(1, currentMaxVoltage);
